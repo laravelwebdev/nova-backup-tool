@@ -95,23 +95,8 @@ export default {
                 this.activeDiskBackups = backups;
             });
         },
-
-        createBackup() {
-            Nova.success(this.__('Creating a new backup in the background...'));
-
-            return api.createBackup();
-        },
-
-        createPartialBackup(option) {
-            Nova.success(
-                this.__('Creating a new backup in the background...') + ' (' + option + ')'
-            );
-
-            this.$refs.backupDropdownMenu.delayedHideMenu();
-            return api.createPartialBackup(option);
-        },
-
         deleteBackup({ disk, path }) {
+            Nova.success(this.__('Menghapus file backup. Silakan Tunggu...'));
             return api.deleteBackup({ disk, path });
         },
 
@@ -125,7 +110,6 @@ export default {
                 }, Nova.config('nova_backup_tool').polling_interval * 1000);
             }
         },
-
         setModalVisibility(state) {
             this.modalVisibility = state;
         },
