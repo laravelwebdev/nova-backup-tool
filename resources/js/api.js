@@ -11,14 +11,6 @@ export default {
             .then(response => response.data);
     },
 
-    createBackup() {
-        return Nova.request().post(`/nova-vendor/spatie/backup-tool/backups`);
-    },
-
-    createPartialBackup(option) {
-        return Nova.request().post(`/nova-vendor/spatie/backup-tool/backups`, { option });
-    },
-
     deleteBackup({ disk, path }) {
         return Nova.request().delete(`/nova-vendor/spatie/backup-tool/backups`, {
             params: { disk, path },

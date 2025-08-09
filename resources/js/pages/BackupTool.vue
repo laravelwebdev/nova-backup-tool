@@ -6,39 +6,6 @@
             <Heading>
                 {{ __('Backups') }}
             </Heading>
-
-            <div class="flex items-center justify-end space-x-2">
-                <Dropdown dusk="select-all-dropdown" ref="backupDropdownMenu">
-                    <DropdownTrigger
-                        :show-arrow="false"
-                        class="rounded hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring"
-                    >
-                        <Button variant="ghost" icon="ellipsis-horizontal" />
-                    </DropdownTrigger>
-
-                    <template #menu>
-                        <DropdownMenu slot="menu" direction="rtl" width="250">
-                            <DropdownMenuItem
-                                as="button"
-                                @click.prevent="createPartialBackup('only-db')"
-                            >
-                                {{ __('Create database backup') }}
-                            </DropdownMenuItem>
-
-                            <DropdownMenuItem
-                                as="button"
-                                @click.prevent="createPartialBackup('only-files')"
-                            >
-                                {{ __('Create files backup') }}
-                            </DropdownMenuItem>
-                        </DropdownMenu>
-                    </template>
-                </Dropdown>
-
-                <Button variant="solid" @click="createBackup">
-                    {{ __('Create Backup') }}
-                </Button>
-            </div>
         </div>
 
         <LoadingCard :loading="loading" class="mb-6">

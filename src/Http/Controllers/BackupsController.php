@@ -37,14 +37,6 @@ class BackupsController extends ApiController
         });
     }
 
-    public function create(Request $request)
-    {
-        $option = $request->input('option', '');
-
-        dispatch(new CreateBackupJob($option))
-            ->onQueue(config('nova-backup-tool.queue'));
-    }
-
     public function delete(Request $request)
     {
         $validated = $request->validate([
